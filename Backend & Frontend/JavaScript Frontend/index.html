@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Alternate Alternator</title>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script src="./index.js"></script>
+</head>
+
+<body
+    style="width: auto; background-image: url('./sky.jpg'); background-size: 100%;">
+    <div style="padding-top: 8%;">
+
+        <!-- Input column -->
+        <div style="float: left; margin-left: 15%; padding-left: 2%; width: 200px; height: 400px; background-color: rgb(176, 199, 230);  border: solid black 1px;">
+            <form style="margin-bottom: 5%; padding-top: 10%;" name="myForm">
+                <label for="fligt_icao">Destination ICAO:</label>
+                <br>
+                <input type="text" name="Destination ICAO" id="dest_form">
+                <br>
+                <br>
+                <label for="airc_icao">Aircraft ICAO:</label>
+                <br>
+                <input type="text" name="Aircraft ICAO" id="aircraft_form">
+                <br>
+                <br>
+                <input type="button" id="submit" value="Submit" onclick="submitform()">
+            </form>
+
+            <br />
+
+            <label>Select alternate airport:</label><br />
+            <input type="text" list="alternate_list" id="alternate_input" autocomplete="off" onchange="manualAlternateSelected()" />
+            <datalist id="alternate_list"></datalist>
+        </div>
+
+        <!-- Alternates column -->
+        <div style="float: left; width:  300px; height: 400px; background-color: rgb(176, 199, 230);  border: solid black 1px;">
+            <div id="radioDiv" style="padding: 2%;">
+                <form style="width: fit-content;" id="radioForm"></form>
+            </div>
+        </div>
+
+        <!-- Google Maps section -->
+        <div style="margin-left: 20%;">
+            <div style="width: 500px; max-height: 500px; float: left;  border: solid black 1px;" id="map"></div>
+
+            <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+            <script
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu63DPYaa5b_16zALRT5LvoDQUpqdvFjc&callback=initMap&libraries=&v=weekly"
+                async></script>
+        </div>
+    </div>
+</body>
+
+</html>
